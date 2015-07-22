@@ -1,0 +1,14 @@
+CREATE DATABASE `cmpe280`
+
+CREATE TABLE  `cmpe280`.`registration` (
+  `firstName` varchar(50) DEFAULT NULL,
+  `lastName` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `pWord` varchar(50) DEFAULT NULL,
+  `dob` date DEFAULT NULL,
+  `localDOB` date DEFAULT NULL,
+  `dobWithTime` datetime DEFAULT NULL,
+  `SSN` varchar(11) DEFAULT NULL,
+  `phone` varchar(10) DEFAULT NULL,
+  `creditCard` varchar(19) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Welcome To Registration Page</title>
+	<script src="http://www.modernizr.com/downloads/modernizr-latest.js"></script>
+	<script src="js/myScript.js" type="text/javascript"></script>
+</head>
+<center>
+<body onload="Pageloaded()">
+<form id="myForm" class="form-horizontal" role="form" method="post" action="myConfig.php">
+	<div style="width:750px;height:650px;border:1px solid #000;">
+		<h1>Welcome To Registration Page</h1>
+		<br/>
+		<br/>
+		<table>
+			<tr>
+				<td width="40%">
+					<label id="lblFirstName" style="padding-left:50px;">First Name</label>
+				</td>
+				<td width="60%">
+					<input id="txtFirstName" type="text" style="margin-left:30px;width:200px;height:20px;" required placeholder="Enter first name" class="form-control" />
+				</td>
+			</tr>
+			<tr>
+				<td width="40%">
+					<label id="lblLastName" style="padding-left:50px;">Last Name</label>
+				</td>
+				<td width="60%">
+					<input id="txtLastName" type="text" style="margin-left:30px;width:200px;height:20px;" required placeholder="Enter last name" class="form-control"/>
+				</td>		
+			</tr>
+			<tr>
+				<td width="40%">
+					<label id="lblEmail" style="padding-left:50px;">Email</label>
+				</td>
+				<td width="60%">
+					<input id="txtEmail" type="text" style="margin-left:30px;width:200px;height:20px;" required class="form-control"/>
+				</td>
+			</tr>
+			<tr>
+				<td width="40%">
+					<label id="lblPassword" style="padding-left:50px;">Password</label>
+				</td>
+				<td width="60%">
+					<input id="txtPassword" type="password" style="margin-left:30px;width:200px;height:20px;" maxlength="24" onkeyup="checkPassword(this.value)" required class="form-control"/>
+				</td>
+				<td>
+					<span><progress id="passwordStrength" value="20" max="100"></progress></span>
+				</td>
+			</tr>
+			<tr>
+				<td width="40%">
+					<label id="lblConfirmPassword" style="padding-left:50px;">Confirm Password</label>
+				</td>
+				<td width="60%">
+					<input id="txtConfirmPassword" type="password" style="margin-left:30px;width:200px;height:20px;" required maxlength="24" onkeyup="matchPassword(this.value)" placeholder="Must be same as password" class="form-control"/>
+				</td>
+				<td>
+					<span id="matched" style="display:none">Not Matched</span>
+				</td>
+			</tr>
+			<tr>
+				<td width="40%">
+					<label id="lblDOB" style="padding-left:50px;">D.O.B</label>
+				</td>
+				<td width="60%">
+					<input id="txtDOB" type="date" max="2015-02-21" style="margin-left:30px;width:200px;height:20px;" required class="form-control"/>
+				</td>
+			</tr>
+			<tr>
+				<td width="40%">
+					<label id="lblLocalDOB" style="padding-left:50px;">Local D.O.B</label>
+				</td>
+				<td width="60%">
+					<input id="txtLocalDOB" type="date" max="2015-02-21" style="margin-left:30px;width:200px;height:20px;" required class="form-control"/>
+				</td>
+			</tr>
+			<tr>
+				<td width="40%">
+					<label id="lblDOBTime" style="padding-left:50px;">D.O.B with time</label>
+				</td>
+				<td width="60%">
+					<input id="txtDOBTime" type="datetime-local" max="2015-02-21T23:59:59.52" required style="margin-left:30px;width:200px;height:20px;" class="form-control"/>
+				</td>
+			</tr>
+			<tr>
+				<td width="40%">
+					<label id="lblSSN" style="padding-left:50px;">SSN</label>
+				</td>
+				<td width="60%">
+					<input id="txtSSN" type="text" style="margin-left:30px;width:200px;height:20px;" required pattern="\d{3}-\d{2}-\d{4}" title="###-##-####" class="form-control"/>
+				</td>
+			</tr>
+			<tr>
+				<td width="40%">
+					<label id="lblPhone" style="padding-left:50px;">Phone</label>
+				</td>
+				<td width="60%">
+					<input id="txtPhone" type="text" style="margin-left:30px;width:200px;height:20px;" required class="form-control"/>
+				</td>
+			</tr>
+			<tr>
+				<td width="40%">
+					<label id="lblCreditCard" style="padding-left:50px;">Credit Card No</label>
+				</td>
+				<td width="60%">
+					<input id="txtCreditCard" type="text" style="margin-left:30px;width:200px;height:20px;" required pattern="\d{4}-\d{4}-\d{4}-\d{4}"  title="####-####-####-####" class="form-control"/>
+				</td>
+			</tr>
+			<tr>
+				<td width="60%">
+					<div id="src" style="margin-left:30px;">
+						<img draggable="true" id="banana" src="images/image1.jpg" alt="banana" height="60px" width="60px" ondragstart="drag(event)"/>
+						<img draggable="true" id="apple" src="images/image2.jpg" alt="apple" height="60px" width="60px" ondragstart="drag(event)"/>
+						<img draggable="true" id="cherries" src="images/image3.jpg" alt="cherry" height="60px" width="60px" ondragstart="drag(event)"/>
+					</div>
+				</td>
+				<td width="40%" style="margin-left:30px;">
+					<div id="target" ondrop="drop(event)" ondragover="allowDrop(event)">
+						<span id="msg">Drop Region</span>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<br/>
+		<button type="submit" id="btnCreation" onclick="myCreation(event)" style="margin-left:100px;" disabled>Create_User</button>
+		<br/>
+		<br/>
+		<button type="button" id="btnlocalStorage" onclick="readFromLocalStorage()" style= "text-align:center;  margin-left:10px; border:1px solid black;width:35%;height:25px;">Local Storage</button>
+		<button type="button" id="btnSessionStorage" onclick="readFromSessionStorage()" style="text-align:center;  margin-left:10px; border:1px solid black;width:35%;height:25px;">Session Storage</button>		
+	</div>
+</form>
+</body>
+</center>
+</html>
